@@ -2,7 +2,7 @@ name: Grass Bot 24/7 Turbo
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/30 * * * *' # Si riavvia ogni 30 MINUTI esatti
+    - cron: '*/30 * * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,4 +14,5 @@ jobs:
           GRASS_PASS: ${{ secrets.GRASS_PASS }}
         run: |
           npm install
-          node index.js
+          # Questo comando invia "1" e poi "Invio" in automatico per scegliere il Server 1
+          printf "1\n" | node index.js
